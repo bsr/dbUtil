@@ -1,0 +1,36 @@
+{
+	"environments": {
+		"development": {
+			"http_host": "example.com-local",
+			"db_host": "localhost",
+			"db_user": "root",
+			"db_password": "",
+			"db_name": "example",
+			"debug": true
+		},
+		"staging": {
+			"http_host": "staging.example.com",
+			"db_host": "localhost",
+			"db_user": "example",
+			"db_password": "somepasswword",
+			"db_name": "example",
+			"debug": true
+		},
+		"production": {
+			"http_host": "example.com",
+			"db_host": "localhost",
+			"db_user": "example",
+			"db_password": "anotherpassword",
+			"db_name": "example",
+			"debug": true,
+			"force_required":true
+		}
+	},
+	"default_environment":"development",
+	"db_dump_dir": "db",
+	"db_tables":[],
+	"db_charset":"utf8",
+	"db_table_prefix":"",
+	
+	"lang":"en-US"
+}
