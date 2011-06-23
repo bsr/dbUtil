@@ -238,6 +238,7 @@ if($subcommand eq 'dumpdata' || $subcommand eq 'datadump'){
 		'--quick',
 		'--default-character-set=utf8',
 		'--extended-insert=FALSE',
+		'--delayed-insert=TRUE',
 		'--complete-insert',
 		'--skip-comments',
 		'--no-create-db',
@@ -247,6 +248,8 @@ if($subcommand eq 'dumpdata' || $subcommand eq 'datadump'){
 	if(exists $config->{'db_tables'} && scalar @{$config->{'db_tables'}}){
 		push @options, '"' . join('" "', @{$config->{'db_tables'}}) . '"';
 	}
+	
+	##print 'mysqldump ' . join(' ', @options) . " > $db_dump_dir/$environment.sql\n";
 	system('mysqldump ' . join(' ', @options) . " > $db_dump_dir/$environment.sql");
 	system("$args{p} $db_dump_dir/$environment.sql") if exists $args{p} && $args{p};
 	exit;
